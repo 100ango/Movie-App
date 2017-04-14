@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void downloadMovieDetails() {
-        URL apiURL = NetworkUtils.buildUrl(mSortOrder);
+        URL apiURL = NetworkUtils.buildUrl(mSortOrder, this);
         new InternetConnectionTask().execute(apiURL);
     }
 
