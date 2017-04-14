@@ -30,11 +30,15 @@ import java.net.URL;
  */
 public class NetworkUtils {
 
-    final static String MOVIE_BASE_URL = "https://api.themoviedb.org/3/movie/";
-    final static String PARAM_API = "api_key";
-    final static String API_KEY = "[API_KEY]";
+    final static String MOVIE_BASE_URL;
+    final static String PARAM_API;
+    final static String API_KEY;
 
-    public static URL buildUrl(String sortBy) {
+    public static URL buildUrl(String sortBy, Context context) {
+        MOVIE_BASE_URL = context.getString(R.string.base_url);
+        PARAM_API = context.getString(R.string.api_param);
+        API_KEY = context.getString(R.string.api_key);
+        
         Uri builtUri = Uri.parse(MOVIE_BASE_URL).buildUpon()
                     .appendEncodedPath(sortBy)
                     .appendQueryParameter(PARAM_API, API_KEY)
