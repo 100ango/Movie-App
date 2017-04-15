@@ -30,9 +30,9 @@ import java.net.URL;
  */
 public class NetworkUtils {
 
-    final static String MOVIE_BASE_URL;
-    final static String PARAM_API;
-    final static String API_KEY;
+    static String MOVIE_BASE_URL;
+    static String PARAM_API;
+    static String API_KEY;
 
     public static URL buildUrl(String sortBy, Context context) {
         MOVIE_BASE_URL = context.getString(R.string.base_url);
