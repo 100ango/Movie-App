@@ -28,7 +28,11 @@ public class DetailsActivity extends Activity{
         poster  = (ImageView) findViewById(R.id.poster);
 
         Intent intent = getIntent();
-        Movie moveDetails =  intent.getParcelableExtra("movieDetails");
+        Bundle extras = intent.getExtras();
+        Movie moveDetails = null;
+        
+        if(extras != null && extras.containsKey("movieDetails"))
+            moveDetails =  intent.getParcelableExtra("movieDetails");
 
         setDetails(moveDetails);
     }
