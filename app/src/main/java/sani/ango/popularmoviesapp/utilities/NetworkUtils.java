@@ -37,7 +37,7 @@ public class NetworkUtils {
     public static URL buildUrl(String sortBy, Context context) {
         MOVIE_BASE_URL = context.getString(R.string.base_url);
         PARAM_API = context.getString(R.string.api_param);
-        API_KEY = context.getString(R.string.api_key);
+        API_KEY = BuildConfig.THE_MOVIE_DB_API_TOKEN;
         
         Uri builtUri = Uri.parse(MOVIE_BASE_URL).buildUpon()
                     .appendEncodedPath(sortBy)
