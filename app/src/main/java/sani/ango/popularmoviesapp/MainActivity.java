@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements
         movies = new ArrayList<>();
         mMovieList = (RecyclerView) findViewById(R.id.rv_movies_list);
 
-        int orientation = getResources().getConfiguration.orientation;
+        int orientation = getResources().getConfiguration().orientation;
             
         if(orientation == Configuration.ORIENTATION_PORTRAIT)
             mMovieList.setLayoutManager(new GridLayoutManager(this, 2));
