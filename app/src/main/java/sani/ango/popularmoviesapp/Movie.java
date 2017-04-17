@@ -10,15 +10,17 @@ public class Movie implements Parcelable{
     private String overview;
     private String releasedDate;
     private String posterImage;
+    private String backPoster;
     private final static String BASE_URL = "http://image.tmdb.org/t/p/w185//";
 
     public Movie(String title, double ratings,
-                 String summary, String date, String relativePath){
+                 String summary, String date, String relativePath, String backdropPath){
         movieTitle = title;
         viewerRatings = ratings;
         overview = summary;
         releasedDate = date;
         posterImage = BASE_URL + relativePath;
+        backPoster = BASE_URL + backdropPath;
     }
 
     protected Movie(Parcel in) {
@@ -27,6 +29,7 @@ public class Movie implements Parcelable{
         overview = in.readString();
         releasedDate = in.readString();
         posterImage = in.readString();
+        backPoster = in.readString();
     }
 
     public static final Creator<Movie> CREATOR = new Creator<Movie>() {
@@ -74,5 +77,6 @@ public class Movie implements Parcelable{
         dest.writeString(overview);
         dest.writeString(releasedDate);
         dest.writeString(posterImage);
+        dest.writeString(backPoster);
     }
 }
