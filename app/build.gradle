@@ -31,4 +31,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.android.support:recyclerview-v7:22.1.1'
     compile files('picasso-2.5.2.jar')
+    compile 'com.android.support:design:22.2.0'
 }
