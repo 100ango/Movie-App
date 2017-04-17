@@ -1,5 +1,6 @@
 package sani.ango.popularmoviesapp;
 
+import android.content.res.Configuration;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements
         movies = new ArrayList<>();
         mMovieList = (RecyclerView) findViewById(R.id.rv_movies_list);
 
-        int orientation = getActivity().getConfiguration.orientation;
+        int orientation = getResources().getConfiguration.orientation;
             
         if(orientation == Configuration.ORIENTATION_PORTRAIT)
             mMovieList.setLayoutManager(new GridLayoutManager(this, 2));
