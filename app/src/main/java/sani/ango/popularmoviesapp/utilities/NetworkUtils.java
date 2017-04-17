@@ -17,7 +17,7 @@ package sani.ango.popularmoviesapp.utilities;
 
 import android.annotation.SuppressLint;
 import android.net.Uri;
-
+import android.content.Context;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
