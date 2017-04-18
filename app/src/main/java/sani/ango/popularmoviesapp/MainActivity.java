@@ -1,9 +1,9 @@
 package sani.ango.popularmoviesapp;
 
-import android.content.res.Configuration;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -56,13 +56,10 @@ public class MainActivity extends AppCompatActivity implements
         movies = new ArrayList<>();
         mMovieList = (RecyclerView) findViewById(R.id.rv_movies_list);
 
-        int orientation = getResources().getConfiguration().orientation;
-            
-        if(orientation == Configuration.ORIENTATION_PORTRAIT)
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
             mMovieList.setLayoutManager(new GridLayoutManager(this, 2));
         else
             mMovieList.setLayoutManager(new GridLayoutManager(this, 3));
-            
         mMovieList.setHasFixedSize(true);
 
         if (isNetworkAvailable())
@@ -164,7 +161,8 @@ public class MainActivity extends AppCompatActivity implements
                 String summary = details.getString("overview");
                 double ratings = details.getDouble("vote_average");
                 String date = details.getString("release_date");
-                movies.add(new Movie(title, ratings, summary, date, poster));
+                String backdrop = details.getString("backdrop_path");
+                movies.add(new Movie(title, ratings, summary, date, poster, backdrop));
             }
         } catch (JSONException e) {
             e.printStackTrace();
