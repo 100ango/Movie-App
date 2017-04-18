@@ -16,6 +16,7 @@ public class DetailsActivity extends Activity{
     private TextView releasedDate;
     private TextView voteAverage;
     private ImageView poster;
+    private ImageView backdrop;
 
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -26,11 +27,11 @@ public class DetailsActivity extends Activity{
         releasedDate  = (TextView) findViewById(R.id.date);
         voteAverage  = (TextView) findViewById(R.id.ratings);
         poster  = (ImageView) findViewById(R.id.poster);
+        backdrop = (ImageView)findViewById(R.id.backdrop);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         Movie moveDetails = null;
-        
         if(extras != null && extras.containsKey("movieDetails"))
             moveDetails =  intent.getParcelableExtra("movieDetails");
 
@@ -45,6 +46,9 @@ public class DetailsActivity extends Activity{
         voteAverage.setText(String.valueOf(details.getViewerRatings()));
 
         Picasso.with(getBaseContext()).load(details.getPosterImage())
-                .networkPolicy(NetworkPolicy.OFFLINE).resize(300, 300).into(poster);
+                .networkPolicy(NetworkPolicy.OFFLINE).resize(300, 400).into(poster);
+
+        Picasso.with(getBaseContext()).load(details.getPosterImage())
+                .into(backdrop);
     }
 }
